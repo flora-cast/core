@@ -6,16 +6,21 @@ DEPENDS="base"
 BUILD_DEPENDS="gcc make bc bison perl python3 xz-utils"
 DESC="Linux kernel for Lilith Linux"
 LICENSE="GPL-2.0"
-VERSION="6.17.5"
-SOURCE="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.5.tar.xz"
+VERSION="6.18"
+SOURCE="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${VERSION}.tar.xz"
 IS_BUILD="false"
 
 build() {
   tar -xf "$SOURCE_FILE" -C "$BUILD_DIR"
+  cd "$BUILD_DIR/linux-${VERSION}" 
 
-  cd "$BUILD_DIR/linux-${VERSION}" && 
-    cp /boot/old-config ./.config &&
-    make -j$(nproc)
+  if ! [ -f /boot/old-config ]; then
+    cat ../../linux-config/${VERSION}/config-shary-os > ./.config
+  else
+    cp /boot/old-config ./.config 
+  fi
+
+  make -j$(nproc)
 }
 
 package() {

@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
-NAME="hclos"
+NAME="cpsi"
 DEPENDS=""
 BUILD_DEPENDS="curl busybox"
-DESC="Package Manager for Lilith Linux"
-LICENSE="CC0"
+DESC="Package Manager for Shary OS"
+LICENSE="BSD-3-Clause License"
 VERSION="0.1.0.1.0"
-SOURCE="https://github.com/lilith-linux/hclos/archive/refs/tags/${VERSION}.tar.gz"
+SOURCE="https://github.com/flora-cast/cpsi/archive/refs/tags/${VERSION}.tar.gz"
 IS_BUILD="false"
 
 build() {
@@ -16,11 +16,11 @@ build() {
   curl -SfL https://ziglang.org/download/0.15.2/zig-x86_64-linux-0.15.2.tar.xz -o "${BUILD_DIR}/zig.tar.xz"
     tar -xvf "${BUILD_DIR}/zig.tar.xz" -C "${BUILD_DIR}/zig"
 
-    cd "${BUILD_DIR}/hclos-${VERSION}" && PATH="${BUILD_DIR}/zig/zig-x86_64-linux-0.15.2:$PATH" make
+    cd "${BUILD_DIR}/cpsi-${VERSION}" && PATH="${BUILD_DIR}/zig/zig-x86_64-linux-0.15.2:$PATH" make
 }
 
 package() {
-  cd "${BUILD_DIR}/hclos-${VERSION}" && PREFIX="${PACKAGE_DIR}" make install
+  cd "${BUILD_DIR}/cpsi-${VERSION}" && PREFIX="${PACKAGE_DIR}" make install
 }
 
 pre_inst() {
