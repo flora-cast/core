@@ -15,7 +15,7 @@ build() {
   cd "$BUILD_DIR/linux-${VERSION}" 
 
   if ! [ -f /boot/old-config ]; then
-    cat ../../linux-config/${VERSION}/config-shary-os > ./.config
+    cat ./linux/config-${VERSION}-shary-os > ./.config
   else
     cp /boot/old-config ./.config 
   fi
