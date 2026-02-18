@@ -4,7 +4,7 @@
 NAME="linux"
 DEPENDS="base"
 BUILD_DEPENDS="gcc make bc bison perl python3 xz-utils"
-DESC="Linux kernel for Lilith Linux"
+DESC="Linux kernel for Shary OS"
 LICENSE="GPL-2.0"
 VERSION="6.18"
 SOURCE="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${VERSION}.tar.xz"
@@ -14,11 +14,14 @@ build() {
   tar -xf "$SOURCE_FILE" -C "$BUILD_DIR"
   cd "$BUILD_DIR/linux-${VERSION}" 
 
-  if ! [ -f /boot/old-config ]; then
-    cat ./linux/config-${VERSION}-shary-os > ./.config
-  else
+
+  if [ -f /boot/old-config ]; then
     cp /boot/old-config ./.config 
+    make olddefconfig
+  else
+    curl -fL "https://github.com/flora-cast/linux-config/releases/download/${VERSION}/config" -o ".config"
   fi
+
 
   make -j$(nproc)
 }
@@ -36,7 +39,7 @@ pre_inst() {
 }
 
 post_inst() {
-  ln -s /boot/vmlinuz /boot/vmlinuz-${VERSION}
+  ln -sf /boot/vmlinuz /boot/vmlinuz-${VERSION}
 }
 
 pre_rm() {
