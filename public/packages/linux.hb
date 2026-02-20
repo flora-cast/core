@@ -3,7 +3,7 @@
 
 NAME="linux"
 DEPENDS="base"
-BUILD_DEPENDS="gcc make bc bison perl python3 xz-utils"
+BUILD_DEPENDS="gcc make bc bison flex perl python3 xz pahole build-base elfutils-dev openssl-dev ncurses-dev tar"
 DESC="Linux kernel for Shary OS"
 LICENSE="GPL-2.0"
 VERSION="6.18"

@@ -3,7 +3,7 @@
 
 NAME="finit"
 DEPENDS=""
-BUILD_DEPENDS="gcc libuev libite autoconf automake pkg-conf"
+BUILD_DEPENDS="gcc autoconf automake pkgconf build-base linux-headers"
 DESC="Fast init for Linux. Cookies included "
 LICENSE="CC0"
 VERSION="4.15"

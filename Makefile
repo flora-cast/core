@@ -14,8 +14,8 @@ build:
 
 
 clean: 
-	cd ./public/packages && rm -f index *.clos *.b3 index.b3
-	rm -f index index.b3
+	cd ./public/packages && rm -f *.clos *.b3
+	cd ./public && rm -f index index.b3
 
 docker:
 	bash ./docker.sh

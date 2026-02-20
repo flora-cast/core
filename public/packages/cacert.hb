@@ -3,7 +3,7 @@
 
 NAME="cacert"
 DEPENDS=""
-BUILD_DEPENDS="curl"
+BUILD_DEPENDS=""
 DESC="The Mozilla CA certificate store in PEM format"
 LICENSE="CC0"
 VERSION="1.0.0"

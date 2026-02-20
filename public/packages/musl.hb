@@ -29,8 +29,9 @@ pre_inst() {
 }
 
 post_inst() {
-  ln -s /usr/lib/libc.so /usr/lib/ld-musl-x86_64.so.1 &&
-  ln -s /usr/lib/ld-musl-x86_64.so.1 /usr/bin/ldd
+  mkdir -p /usr/lib
+  ln -sf /usr/lib/libc.so /usr/lib/ld-musl-x86_64.so.1 &&
+  ln -sf /usr/lib/ld-musl-x86_64.so.1 /usr/bin/ldd
 }
 
 pre_rm() {

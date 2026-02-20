@@ -2,7 +2,7 @@
 
 
 NAME="base"
-DEPENDS=""
+DEPENDS="tar"
 BUILD_DEPENDS=""
 DESC="Base filesystem for lilith linux"
 LICENSE="BSD-3-Clause License"
