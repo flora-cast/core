@@ -16,7 +16,7 @@ build() {
 }
 
 package() {
-  cd "$PACKAGE_DIR/usr/bin" && chmod +x ./busybox && ./busybox --install .
+  cd "$PACKAGE_DIR/usr/bin" && chmod +x ./busybox && ./busybox --install -s .
 }
 
 pre_inst() {

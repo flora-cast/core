@@ -19,7 +19,8 @@ build() {
 
 package() {
   cd "$BUILD_DIR/zstd-1.5.7" &&
-    make install PREFIX="$PACKAGE_DIR"
+    mkdir -p "$PACKAGE_DIR/usr"
+    make install DESTDIR="$PACKAGE_DIR/usr"
 }
 
 pre_inst() {

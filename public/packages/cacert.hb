@@ -16,7 +16,7 @@ build() {
 
 package() {
   mkdir -p "${PACKAGE_DIR}/etc/ssl/certs/"
-  cp "$SOURCE_FILE" "${PACKAGE_DIR}/etc/ssl/certs/cacert-$(date +\"%Y-%m-%d\").pem"
+  cp "$SOURCE_FILE" "${PACKAGE_DIR}/etc/ssl/certs/cacert-$(date '+%Y-%m-%d').pem"
 }
 
 pre_inst() {
